@@ -1,11 +1,18 @@
 pipeline {
-agent any
-environment {
-awscli = "C:\\Program Files\\Amazon\\AWSCLIV2\\awscli"
-appcmd = "C:\\Windows\\System32\\inetsrv"
-}stages{
-  stage("Env Build Number"){
-            steps{
+  agent any
+  environment {
+    awscli = "C:\\Program Files\\Amazon\\AWSCLIV2\\awscli"
+    envars= 
+      appcmd = "C:\\Windows\\System32\\inetsrv"
+  }
+  stages{
+    stage('Env Variables'){
+      steps{
+        bat 'set'
+      }
+    }
+    stag{
+      steps{
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
             }
