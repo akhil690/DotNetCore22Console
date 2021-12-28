@@ -1,23 +1,22 @@
 pipeline {
-  agent any
-
-  stages {
-    stage('build') {
-      steps {
-        sh 'javac -d . src/*.java'
-        sh 'echo Main-Class: Rectangulator > MANIFEST.MF'
-        sh 'jar -cvmf MANIFEST.MF rectangle.jar *.class'
-      }
-    }
-    stage('run') {
-      steps {
-        sh 'java -jar rectangle.jar 7 9'
-      }
-    }
-  }
-  post {
-    success {
-      archiveArtifacts artifacts: 'rectangle.jar', fingerprint: true
-    }
-  }
+agent any
+environment {
+awscli = "C:\\Program Files\\Amazon\\AWSCLIV2\\awscli"
+appcmd = "C:\\Windows\\System32\\inetsrv"
+} stages {
+stage('S3download') {
+steps {
+withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+{
+bat 'aws s3 cp s3://awscli-upload/hi/ConsoleApp.dll D:\\Azuredevops'
 }
+}
+}
+stage('Stop AppWebsite') {
+steps {
+bat 'AppCmd stop site "default"'
+}
+}
+}
+}
+
