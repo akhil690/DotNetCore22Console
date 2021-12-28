@@ -25,7 +25,7 @@ pipeline {
     }
     stage('start AppWebsite') {
       steps {
-        bat 'C:\\Windows\\System32\\inetsrv\\AppCmd start site "default2"
+        bat 'C:\\Windows\\System32\\inetsrv\\AppCmd start site "default2"'
       }
     }
   }
