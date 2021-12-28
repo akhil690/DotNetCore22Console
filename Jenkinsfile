@@ -4,11 +4,11 @@ environment {
 awscli = "C:\\Program Files\\Amazon\\AWSCLIV2\\awscli"
 appcmd = "C:\\Windows\\System32\\inetsrv"
 } stages {
-stage('S3download') {
+stage('S3 Download') {
 steps {
-withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'c7404c17-3b93-4e2d-8b86-4f1a2ce6bdb2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
 {
-bat 'aws s3 cp s3://awscli-upload/hi/ConsoleApp.dll D:\\Azuredevops'
+bat 'aws s3://my-mainbucket/D/dotnetcore22console.dll D:\s3-artifact'
 }
 }
 }
