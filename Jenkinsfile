@@ -30,12 +30,18 @@ stages {
     }
     stage('Unit Test') {
          steps {
-             bat 'dotnet test C:\\Windows\\system32\\config\\systempr{}.ofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs'
+             bat 'dotnet test C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs'
          }
      }
      stage('Publish') {
          steps {
               bat 'dotnet publish C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs'
+         }
+     }
+    stage('Versioning') {
+         steps{
+              cp s3://my-mainbucket/D/dotnetcore22console.dll${Multi-Branch-Pipeline}.$
+              {env.build.number}
          }
      }
      stage('Upload'){
