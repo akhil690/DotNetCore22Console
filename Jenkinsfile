@@ -38,12 +38,6 @@ stages {
               bat 'dotnet publish C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs'
          }
      }
-     stage('Versioning') {
-         steps{
-              cp s3:\\my-mainbucket\D\otnetcore22console.dll${Multi-Branch-Pipeline}.$
-              {env.build.number}
-         }
-     }
      stage('Upload'){
          steps {
               withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'c7404c17-3b93-4e2d-8b86-4f1a2ce6bdb2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
