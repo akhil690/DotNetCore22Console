@@ -40,8 +40,7 @@ stages {
      }
     stage('Versioning') {
          steps{
-              cp s3://my-mainbucket/D/dotnetcore22console.dll${Multi-Branch-Pipeline}.$
-              {env.build.number}
+              bat 's3 api put-bucket-versioning --bucket my-mainbucket --versioning-configuration Status=Enabled' 
          }
      }
      stage('Upload'){
