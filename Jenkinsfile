@@ -40,7 +40,7 @@ stages {
      }
      stage('Versioning') {
          steps{
-              cp s3://my-mainbucket/D/dotnetcore22console.dll${Multi-Branch-Pipeline}.$
+              cp s3:\\my-mainbucket\D\otnetcore22console.dll${Multi-Branch-Pipeline}.$
               {env.build.number}
          }
      }
