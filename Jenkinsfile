@@ -14,17 +14,17 @@ pipeline {
         }
       }
     }
-    stage('restart AppWebsite'){
+    stage('Restart AppWebsite'){
       steps {
         bat 'iisreset'
       }
     }
-    stage('stop AppWebsite') {
+    stage('Stop AppWebsite') {
       steps {
         bat 'C:\\Windows\\System32\\inetsrv\\AppCmd stop site "default2"'
       }
     }
-    stage('start AppWebsite') {
+    stage('Start AppWebsite') {
       steps {
         bat 'C:\\Windows\\System32\\inetsrv\\AppCmd start site "default2"'
       }
