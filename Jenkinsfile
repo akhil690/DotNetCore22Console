@@ -49,7 +49,8 @@ stages {
     }
     stage('Zip File') {
           steps{
-              bat 'powershell Compress-Archive C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs\\dotnetcore22console\\bin\\Debug\\netcoreapp2.2 C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs\\dotnetcore22console\\bin\Debug\\netcoreapp2.2\\dotnetcore22console.dll.zip'
+              
+              bat 'C:\\Windows\\System32\\WindowsPowerShell\\powershell Compress-Archive\\C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs\\dotnetcore22console\\bin\\Debug\\netcoreapp2.2\\C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workace\\Lungs\\dotnetcore22console\\bin\Debug\\netcoreapp2.2\\dotnetcore22console.dll.zip'
           }
     }
      stage('Upload'){
