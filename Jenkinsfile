@@ -51,6 +51,7 @@ stages {
           steps{
               bat 'powershell Compress-Archive C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs\\dotnetcore22console\\bin\\Debug\\netcoreapp2.2 C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs\\dotnetcore22console\\bin\Debug\\netcoreapp2.2\\dotnetcore22console.dll.zip'
           }
+    }
      stage('Upload'){
          steps {
               withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'c7404c17-3b93-4e2d-8b86-4f1a2ce6bdb2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
