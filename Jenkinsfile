@@ -26,7 +26,7 @@ stages {
     stage('Build') {
         steps {
             bat 'dotnet build C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\Lungs --configuration Release'
-            echo "BUILD_ID" :: $BUILD_ID
+            echo '"BUILD_ID" :: $BUILD_ID'
         }
     }
     stage('Unit Test') {
